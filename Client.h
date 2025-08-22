@@ -10,12 +10,15 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
-class Client
+class client
 {
 public:
-  static void *download_file(void *arg);
-  static void *request_files(void *arg);
-  static void *download_status(void *arg);
+    static bool show_status_display;
+    static void *download_file(void *arg);
+    static void *request_files(void *arg);
+    static void *download_status(void *arg);
+    static void show_download_progress();
+    static void hide_download_progress();
 };
 
 #endif

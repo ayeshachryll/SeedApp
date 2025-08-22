@@ -10,13 +10,13 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
-class Server
+class server
 {
 public:
-  static std::map<int, std::string> list_files();
-  static void *handle_client_thread(void *arg);
-  static void *listener_thread(void *arg);
-  static bool bind_available(int &out_fd, int &out_port);
+    static std::map<int, std::pair<std::string, long>> list_files();
+    static void *handle_client_thread(void *arg);
+    static void *accept_thread(void *arg);
+    static bool bind_available(int &out_fd, int &out_port);
 };
 
 #endif
